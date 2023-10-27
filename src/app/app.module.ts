@@ -9,7 +9,7 @@ import { ReportingISSTComponent } from './components/reporting-isst/reporting-is
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { HeaderComponent } from './components/header/header.component';
