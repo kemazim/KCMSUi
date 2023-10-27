@@ -1,0 +1,130 @@
+<body>
+    <div class="top">
+        <br>
+    </div>
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-sm-2 p-3">
+                <a>
+                    <img src="/..//src/assets/images/mpku.png" alt="Home">
+                </a>
+            </div>
+            <div class="col-sm-7 p-3">
+                <div class="container mt-3 box nav-justified">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item p-1">
+                            <a class="nav-link btnHover" href="dashboard">Home</a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link active" href="settings">Settings</a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link btnHover" href="contactUs">Contact Us</a>
+                        </li>
+                    </ul><br>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3">
+                <div class="col">
+                    <div class="container box nav-justified loginBox">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <p>Login As</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container box nav-justified">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a href="mainPage" class="logoutButton">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="mt-3"></div>
+    <div class="flexbox mt-5 m-2" style="background-color:azure;padding: 2em 2em 4em 2em;">
+        <div>
+            <p>Settings</p>
+        </div>
+        <div class="container-fluid header">
+            <div class="row p-0 m-0">
+                <div class="col-sm-3 p-3">
+                    <div class="col hover-pointer" (click)="addUser()" >
+                        <div class="container box nav-justified" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <img class="logoUser" src="/..//src/assets/images/addUser.png" alt="Home">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container box nav-justified mt-5" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <button class="btn btn-primary mt-4">Add User</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 p-3">
+                    <div class="col hover-pointer" (click)="deleteUser()" >
+                        <div class="container box nav-justified" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <img class="logoUser" src="/..//src/assets/images/deleteUser.png" alt="Home">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container box nav-justified mt-5" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <button class="btn btn-primary mt-4">Delete User</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 p-3">
+                    <div class="col hover-pointer" (click)="emailService()" >
+                        <div class="container box nav-justified" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <img class="logo" src="/..//src/assets/images/emailService.PNG" alt="Home">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container box nav-justified mt-5" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <button class="btn btn-primary mt-4">Email Service</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 p-3">
+                    <div class="col hover-pointer" (click)="emailRecipient()" >
+                        <div class="container box nav-justified" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <img class="logo" src="/..//src/assets/images/emailRecipient.png" alt="Home">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container box nav-justified mt-5" >
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <button class="btn btn-primary mt-4">Email Recipient</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
