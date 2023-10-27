@@ -15,7 +15,7 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { HeaderComponent } from './components/header/header.component';
 import { EmailServiceComponent } from './components/email-service/email-service.component';
 import { EmailRecipientComponent } from './components/email-recipient/email-recipient.component'
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { HttpClient } from '@angular/common/http';
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

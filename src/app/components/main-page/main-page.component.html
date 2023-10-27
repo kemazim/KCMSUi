@@ -32,7 +32,7 @@
 				<div class="valid" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
 					*Password must be at least 5 characters long.
 				  </div>
-				<button (click)="login( )"  [disabled]="!loginForm.valid">Login</button>
+				<button (click)="login( )"  >Login</button>
 			</form>
 		</div>
 	</div>

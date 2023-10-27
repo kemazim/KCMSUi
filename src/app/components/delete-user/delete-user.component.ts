@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,11 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./delete-user.component.css']
 })
 export class DeleteUserComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  
+  userName: string = '';
+  
+  constructor(private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
-
+    let name = localStorage.getItem('userName');
+    this.userName = name !== null ? name : '';
   }
 
   backPage() {
