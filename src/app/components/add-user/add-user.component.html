@@ -1,5 +1,3 @@
-
-
 <body>
     <div class="top">
         <br>
@@ -55,23 +53,24 @@
                 <p>Add User</p>
             </div>
             <div class="col-md-1 col-6">
-                <button style="    background-color: #24243e; color: white; font-size: 1em; border-radius: 0.2em;" 
-                type="back" class="btn float-end backButton" (click)="backPage()" >Back</button>
+                <button style="    background-color: #24243e; color: white; font-size: 1em; border-radius: 0.2em;"
+                    type="back" class="btn float-end backButton" (click)="backPage()">Back</button>
             </div>
         </div>
 
-        <form>
+        <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
                         <label for="userID">User ID:</label>
-                        <input type="text" class="form-control" id="userId" placeholder="Enter User ID" name="userId">
+                        <input type="text" class="form-control" id="userId" placeholder="Enter User ID" name="userId"
+                            formControlName="userId">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
                         <label for="role">Role:</label>
-                        <select class="form-select" id="role" name="role">
+                        <select class="form-select" id="role" name="role" formControlName="role">
                             <option value="Admin">Admin</option>
                             <option value="User">User</option>
                         </select>
@@ -82,13 +81,14 @@
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
                         <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                            formControlName="name">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
                         <label for="branch">Branch:</label>
-                        <select class="form-select" id="branch" name="branch">
+                        <select class="form-select" id="branch" name="branch" formControlName="branch">
                             <option value="Interdeals">Interdeals</option>
                             <option value="Padang Kota">Padang Kota</option>
                             <option value="SPICE">SPICE</option>
@@ -101,15 +101,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password"
+                            name="password" formControlName="password">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-2 mt-1">
                         <label for="confirmPwd">Confirm Password:</label>
                         <input type="password" class="form-control" id="confirmPwd" placeholder="Confirm password"
-                            name="confirmPswd">
+                            name="confirmPswd" formControlName="confirmPwd">
                     </div>
                 </div>
             </div>
@@ -121,38 +122,51 @@
                     <button type="submit" class="btn btn-primary mt-4 float-end">Add</button>
                 </div>
                 <div class="col-md-2 col-6">
-                    <button type="submit" class="btn btn-danger mt-4 float-end">Clear</button>
+                    <button type="clear" class="btn btn-danger mt-4 float-end">Clear</button>
                 </div>
             </div>
         </form>
 
         <p>User List</p>
         <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Savings</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-            </tr>
-            <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-                <td>$150</td>
-            </tr>
-            <tr>
-                <td>Joe</td>
-                <td>Swanson</td>
-                <td>$300</td>
-            </tr>
-            <tr>
-                <td>Cleveland</td>
-                <td>Brown</td>
-                <td>$250</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>User Id</th>
+                    <th>Branch</th>
+                    <th>Role</th>
+                    <th>Telephone No</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="isLoading">
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div class="spinner mt-0 mb-0">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce1"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!isLoading">
+                <tr *ngFor="let users of users">
+                    <td>
+                        <span>{{users.name}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.userId}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.branch}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.role}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.contactNo}}</span>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <br>
