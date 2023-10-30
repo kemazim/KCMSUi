@@ -53,59 +53,46 @@
                 <p>Delete User</p>
             </div>
             <div class="col-md-1 col-6">
-                <button style="background-color: #24243e; color: white; font-size: 1em; border-radius: 0.2em;" 
-                type="back" class="btn float-end backButton" (click)="backPage()" >Back</button>
+                <button style="background-color: #24243e; color: white; font-size: 1em; border-radius: 0.2em;"
+                    type="back" class="btn float-end backButton" (click)="backPage()">Back</button>
             </div>
         </div>
         <table>
-            <tr>
-                <th>Branch</th>
-                <th>User Id</th>
-                <th>User Name</th>
-                <th>Role</th>
-                <th>Telephone No</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>
-                    <button class="deleteButton">Delete </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-                <td>$150</td>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>
-                    <button class="deleteButton">Delete </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Joe</td>
-                <td>Swanson</td>
-                <td>$300</td>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>
-                    <button class="deleteButton">Delete </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Cleveland</td>
-                <td>Brown</td>
-                <td>$250</td>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>
-                    <button class="deleteButton">Delete </button>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>User Id</th>
+                    <th>Branch</th>
+                    <th>Role</th>
+                    <th>Telephone No</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="isLoading">
+                <app-spinner [show]="isLoading"></app-spinner>
+            </tbody>
+            <tbody *ngIf="!isLoading">
+                <tr *ngFor="let users of users">
+                    <td>
+                        <span>{{users.name}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.userId}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.branch}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.role}}</span>
+                    </td>
+                    <td>
+                        <span>{{users.contactNo}}</span>
+                    </td>
+                    <td>
+                        <button class="deleteButton" (click)="confirmDeleteUser(users.name,users.userId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <br>

@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { EmailServiceComponent } from './components/email-service/email-service.component';
 import { EmailRecipientComponent } from './components/email-recipient/email-recipient.component'
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     EmailServiceComponent,
     EmailRecipientComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { Users } from '../models/users';
+import { Observable, catchError, pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class UserService {
     return this.http.post<any>(`${this.userUrl}authenticate`, userLogin)
   }
 
-  deleteUser(userId: any) {
-    return this.http.delete<any>(`${this.userUrl}deleteUser`, userId)
+  deleteUser(id: any) {
+    return this.http.delete<any>(`${this.userUrl}deleteUser?userId=`+id)
   }
 
   getUsers() {

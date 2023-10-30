@@ -13,15 +13,6 @@ import { UserService } from 'src/app/services/user.service';
 export class AddUserComponent implements OnInit {
 
   addUserForm!: FormGroup;
-  addUserDetails: any = {
-    userId: '',
-    name: '',
-    password: '',
-    confirmPwd: '',
-    role: '',
-    branch: ''
-  }
-
   addUserRequest = {}
   isLoading!: boolean;
   userName: string = '';
@@ -36,7 +27,7 @@ export class AddUserComponent implements OnInit {
     let name = localStorage.getItem('userName');
     this.userName = name !== null ? name : '';
 
-    this.isLoading =true;
+    this.isLoading = true;
     this.loadUser();
 
     this.addUserForm = this.fb.group({
@@ -47,15 +38,12 @@ export class AddUserComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPwd: ['', [Validators.required, Validators.minLength(5)]],
     });
-
-
-
   }
 
   loadUser() {
     this.userService.getUsers().subscribe(result => {
       this.users = result;
-      this.isLoading=true
+      this.isLoading = false;
     })
   }
 
@@ -63,26 +51,36 @@ export class AddUserComponent implements OnInit {
     if (this.addUserForm.status == 'INVALID') {
       alert("Please make sure password more than 5 char and fill all the details")
     } else {
-      this.addUserRequest = {
-        userId: this.addUserForm.value.userId,
-        name: this.addUserForm.value.name,
-        password: this.addUserForm.value.password,
-        role: this.addUserForm.value.role,
-        branch: this.addUserForm.value.branch,
-        contactNo: "",
-        email: "",
-        designation: ""
-      }
-      this.userService.addUser(this.addUserRequest).subscribe({
-        next: (res) => {
-          alert(res);
-          this.loadUser();
-        },
-        error: (err) => {
-          alert(err?.error.message);
+      if (this.addUserForm.value.password != this.addUserForm.value.confirmPwd) {
+        alert("Please check password and confirm password");
+      } else {
+        this.addUserRequest = {
+          userId: this.addUserForm.value.userId,
+          name: this.addUserForm.value.name,
+          password: this.addUserForm.value.password,
+          role: this.addUserForm.value.role,
+          branch: this.addUserForm.value.branch,
+          contactNo: "",
+          email: "",
+          designation: ""
         }
-      });
+        this.userService.addUser(this.addUserRequest).subscribe({
+          next: (res) => {
+            alert("User succesfully added");
+            this.loadUser();
+            this.addUserForm.reset();
+          },
+          error: (err) => {
+            alert(err?.error.message);
+            this.addUserForm.reset();
+          }
+        });
+      }
     }
+  }
+
+  clear() {
+    this.addUserForm.reset();
   }
 
   backPage() {
