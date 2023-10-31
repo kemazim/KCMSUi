@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AddUserComponent implements OnInit {
 
   addUserForm!: FormGroup;
-  addUserRequest = {}
+  addUserRequest = {};
   isLoading!: boolean;
   userName: string = '';
   users: Users[] = [];
@@ -52,7 +52,7 @@ export class AddUserComponent implements OnInit {
       alert("Please make sure password more than 5 char and fill all the details")
     } else {
       if (this.addUserForm.value.password != this.addUserForm.value.confirmPwd) {
-        alert("Please check password and confirm password");
+        alert("Password and confirm password not match");
       } else {
         this.addUserRequest = {
           userId: this.addUserForm.value.userId,

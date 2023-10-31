@@ -58,42 +58,38 @@
             </div>
         </div>
 
-        <form>
+        <form [formGroup]="emailForm">
             <div class="row">
                 <div class="mb-2 mt-1">
                     <label for="email">Email Recipient:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email recipient" name="email">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email recipient"
+                        name="email" formControlName="email">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
                 </div>
                 <div class="col-md-2 col-6">
-                    <button type="submit" class="btn btn-primary mt-4 float-end">Add</button>
+                    <button type="submit" class="btn btn-primary mt-4 float-end" (click)="addEmail()">Add</button>
                 </div>
                 <div class="col-md-2 col-6">
-                    <button type="submit" class="btn btn-danger mt-4 float-end">Clear</button>
+                    <button type="submit" class="btn btn-danger mt-4 float-end" (click)="clear()">Clear</button>
                 </div>
             </div>
         </form>
 
         <p class="row">Recipient List</p>
         <table>
-            <tr>
-                <th style="text-align: center;">Firstname</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-            </tr>
-            <tr>
-                <td>Lois</td>
-            </tr>
-            <tr>
-                <td>Joe</td>
-            </tr>
-            <tr>
-                <td>Cleveland</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Firstname</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let email of emails">
+                    <td>{{email.name}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <br>

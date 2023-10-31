@@ -1,118 +1,211 @@
 <body>
-    <div class="top">
-        <br>
-    </div>
-<div class="container-fluid header" >
+  <div class="top">
+    <br>
+  </div>
+  <div class="container-fluid header">
     <div class="row">
-        <div class="col-sm-2 p-3">
-            <a>
-                <img src="/..//src/assets/images/mpku.png" alt="Home">
-            </a>
+      <div class="col-sm-2 p-3">
+        <a>
+          <img src="/..//src/assets/images/mpku.png" alt="Home">
+        </a>
+      </div>
+      <div class="col-sm-7 p-3">
+        <div class="container mt-3 box nav-justified">
+          <ul class="nav nav-pills">
+            <li class="nav-item p-1">
+              <a class="nav-link active" href="dashboard">Home</a>
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link btnHover" href="settings">Settings</a>
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link btnHover" href="contactUs">Contact Us</a>
+            </li>
+          </ul><br>
         </div>
-        <div class="col-sm-7 p-3">
-            <div class="container mt-3 box nav-justified">
-                <ul class="nav nav-pills">
-                  <li class="nav-item p-1">
-                    <a class="nav-link active" href="dashboard">Home</a>
-                  </li>
-                  <li class="nav-item p-1">
-                    <a class="nav-link btnHover" href="settings">Settings</a>
-                  </li>
-                  <li class="nav-item p-1">
-                    <a class="nav-link btnHover" href="contactUs">Contact Us</a>
-                  </li>
-                </ul><br>
-              </div>
+      </div>
+      <div class="col-sm-3 p-3">
+        <div class="col">
+          <div class="container box nav-justified loginBox">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <p style="font-size: large;">Login As {{userName}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="container box nav-justified">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a href="mainPage" class="logoutButton">Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-sm-3 p-3">
-            <div class="col">
-                <div class="container box nav-justified loginBox">
-                    <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <p>Login As {{userName}}</p>
-                    </li>
-                    </ul>
-                </div>
-                <div class="container box nav-justified">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a href="mainPage" class="logoutButton">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      </div>
 
-    </div>
-</div>
-<div class="mt-3"></div>
-
-<div class="flexbox m-2" style="background-color: aliceblue;">
-    <div class="row">
-        <div class="col-sm-7 p-0">
-        </div>
-        <div class="col-sm-5 p-0">
-            <div class="container mt-3 box nav-justified">
-                <ul class="nav nav-pills">
-                  <li class="nav-item p-1">
-                    <a class="nav-link btnHover" href="dashboard">Dashboard</a>
-                  </li>
-                  <li class="nav-item p-1">
-                    <a class="nav-link btnHover" href="reportingISST">Reporting ISST</a>
-                  </li>
-                  <li class="nav-item p-1">
-                    <a class="nav-link active" href="myProfile">My Profile</a>
-                  </li>
-                </ul><br>
-              </div>
-        </div>
-    </div>
-</div>
-
-<div class="flexbox m-2" style="background-color: blanchedalmond;">
-  <div class="row detail">
-    <div class="col-sm-4 p-3">
-      <p class="p-0 m-0">User ID</p>
-      <p class="p-0 m-0">Name</p>
-      <p class="p-0 m-0">Role</p>
-      <p class="p-0 m-0">Designation</p>
-      <p class="p-0 m-0">Branch</p>
-      <p class="p-0 m-0">Email</p>
-      <p class="p-0 m-0">Telephone</p>
-    </div>
-    <div class="col-sm-8 p-3">
-      <p class="p-0 m-0"> : User ID</p>
-      <p class="p-0 m-0"> : Name</p>
-      <p class="p-0 m-0"> : Role</p>
-      <p class="p-0 m-0"> : Designation</p>
-      <p class="p-0 m-0"> : Branch</p>
-      <p class="p-0 m-0"> : Email</p>
-      <p class="p-0 m-0"> : Telephone</p>
     </div>
   </div>
-</div>   
+  <div class="mt-3"></div>
 
-<div class="flexbox m-2" style="background-color: blanchedalmond;">
-  <div class="row detail">
-    <div class="col-sm-4 p-3">
-      <p class="p-0 m-0">User ID</p>
-      <p class="p-0 m-0">Name</p>
-      <p class="p-0 m-0">Role</p>
-      <p class="p-0 m-0">Designation</p>
-      <p class="p-0 m-0">Branch</p>
-      <p class="p-0 m-0">Email</p>
-      <p class="p-0 m-0">Telephone</p>
-    </div>
-    <div class="col-sm-8 p-3">
-      <p class="p-0 m-0"> : User ID</p>
-      <p class="p-0 m-0"> : Name</p>
-      <p class="p-0 m-0"> : Role</p>
-      <p class="p-0 m-0"> : Designation</p>
-      <p class="p-0 m-0"> : Branch</p>
-      <p class="p-0 m-0"> : Email</p>
-      <p class="p-0 m-0"> : Telephone</p>
+  <div class="flexbox m-2 mb-0" style="background-color: aliceblue;">
+    <div class="row">
+      <div class="col-sm-7 p-0">
+      </div>
+      <div class="col-sm-5 p-0">
+        <div class="container mt-3 box nav-justified">
+          <ul class="nav nav-pills">
+            <li class="nav-item p-1">
+              <a class="nav-link btnHover" href="dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link btnHover" href="reportingISST">Reporting ISST</a>
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link active" href="myProfile">My Profile</a>
+            </li>
+          </ul><br>
+        </div>
+      </div>
     </div>
   </div>
-</div>   
 
+  <div class="container form" style="background-color: aliceblue;">
+    <div class="row">
+      <div class="col-md-11 col-6">
+        <p>User Profile</p>
+      </div>
+      <div class="col-md-1 col-6">
+        <button style="    background-color: #24243e; color: white; font-size: 1em; border-radius: 0.2em;" type="back"
+          class="btn float-end backButton" (click)="backPage()">Back</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">User ID:</label>
+          <input type="text" class="form-control" id="userId" [value]="userDetails.userId" readonly>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">Name:</label>
+          <input type="text" class="form-control" id="name" [value]="userDetails.name" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">Role:</label>
+          <input type="text" class="form-control" id="role" [value]="userDetails.role" readonly>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">Designation:</label>
+          <input type="text" class="form-control" id="designation" [value]="userDetails.designation" readonly>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">Branch:</label>
+          <input type="text" class="form-control" id="branch" [value]="userDetails.branch" readonly>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="userID">Email:</label>
+          <input type="text" class="form-control" id="email" [value]="userDetails.email" readonly>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="">Telephone No.:</label>
+          <input type="text" class="form-control" id="contactNo" [value]="userDetails.contactNo" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container form" style="background-color: aliceblue;">
+    <div class="row">
+      <div class="col-md-11 col-6">
+        <p>Login Detailed</p>
+      </div>
+      <div class="col-md-1 col-6">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="lastChangePws">Last Change Password Date:</label>
+          <input type="text" class="form-control" id="lastChangePws" [value]="lastChangePws" readonly>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 mt-1">
+          <label for="loginDate">Last Login:</label>
+          <input type="text" class="form-control" id="loginDate" [value]="loginDate" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container form" style="background-color: aliceblue;">
+    <div class="row">
+      <div class="col-md-11 col-6">
+        <p>Change Password</p>
+      </div>
+      <div class="col-md-1 col-6">
+      </div>
+    </div>
+
+    <form [formGroup]="changePasswordForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-2 mt-1">
+            <label for="prevPwd">Current Password</label>
+            <input type="password" class="form-control" id="prevPwd" placeholder="Enter current password" name="prevPwd"
+              formControlName="prevPwd">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-2 mt-1">
+            <label for="pwd">New Password</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter new password" name="pwd"
+              formControlName="pwd">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-2 mt-1">
+            <label for="confirmPwd">Re-enter Password</label>
+            <input type="password" class="form-control" id="confirmPwd" placeholder="Re-enter password"
+              name="confirmPwd" formControlName="confirmPwd">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2 col-6">
+          <button type="submit" class="btn btn-primary mt-4 float-end" (click)="changePassword()">Confirm</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="bot">
+    <br>
+  </div>
 </body>

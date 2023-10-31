@@ -20,12 +20,20 @@ export class UserService {
     return this.http.post<any>(`${this.userUrl}authenticate`, userLogin)
   }
 
+  changePassword(passwordDetails: any) {
+    return this.http.post<any>(`${this.userUrl}changePassword`, passwordDetails)
+  }
+
   deleteUser(id: any) {
     return this.http.delete<any>(`${this.userUrl}deleteUser?userId=`+id)
   }
 
   getUsers() {
     return this.http.get<Users[]>(`${this.userUrl}getUsers`)
+  }
+
+  getUserDetails(id: any) {
+    return this.http.get<Users>(`${this.userUrl}getUserDetails?userId=`+ id)
   }
 
 }
