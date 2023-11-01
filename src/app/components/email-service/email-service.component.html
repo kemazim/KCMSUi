@@ -123,8 +123,11 @@
                                 <th>Host</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr *ngFor="let email of kioskEmail">
+                        <tbody *ngIf="isLoading">
+                            <app-spinner [show]="isLoading"></app-spinner>
+                        </tbody>
+                        <tbody *ngIf="!isLoading">
+                            <tr *ngFor="let email of kioskEmail.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                                 <td>
                                     <span>{{email.email}}</span>
                                 </td>
@@ -138,6 +141,10 @@
                                     <span>{{email.host}}</span>
                                 </td>
                             </tr>
+                            <div class="pagination">
+                                <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)" 
+                                [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
+                            </div>
                         </tbody>
                     </table>
                 </div>

@@ -18,6 +18,7 @@ export class MyProfileComponent implements OnInit {
   userDetails!: Users;
   loginDate!: any;
   lastChangePws!: any;
+  isLoading!: boolean;
 
   changePasswordForm!: FormGroup;
   changePwdRequest = {};
@@ -30,6 +31,7 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
     let name = localStorage.getItem('userName');
     this.userName = name !== null ? name : '';
+    this.isLoading = true;
 
     let id = localStorage.getItem('userId');
     this.userId = id !== null ? id : '';
@@ -48,28 +50,28 @@ export class MyProfileComponent implements OnInit {
   }
 
   changePassword() {
-    if(this.changePasswordForm.status == 'INVALID') {
+    if (this.changePasswordForm.status == 'INVALID') {
       alert("Please make sure New Password and Re-enter Password more than 5 char")
     } else {
       if (this.changePasswordForm.value.pwd != this.changePasswordForm.value.confirmPwd) {
         alert("New Password and Re-enter password not match");
       } else {
-          this.changePwdRequest = {
-            userId: this.userId,
-            currentPassword: this.changePasswordForm.value.prevPwd,
-            newPassword: this.changePasswordForm.value.pwd
+        this.changePwdRequest = {
+          userId: this.userId,
+          currentPassword: this.changePasswordForm.value.prevPwd,
+          newPassword: this.changePasswordForm.value.pwd
+        }
+        this.userService.changePassword(this.changePwdRequest).subscribe({
+          next: (res) => {
+            alert("Password successfully changed");
+            this.loadUserDetails(this.userId);
+            window.location.reload();
+          },
+          error: (err) => {
+            alert(err?.error.message);
+            this.changePasswordForm.reset();
           }
-          this.userService.changePassword(this.changePwdRequest).subscribe({
-            next: (res) => {
-              alert("Password successfully changed");
-              this.loadUserDetails(this.userId);
-              window.location.reload();
-            },
-            error: (err) => {
-              alert(err?.error.message);
-              this.changePasswordForm.reset();
-            }
-          })
+        })
       }
     }
   }
@@ -87,6 +89,7 @@ export class MyProfileComponent implements OnInit {
       this.loginDate = datepipe.transform(this.loginDate, 'dd/MM/yyyy')
       this.lastChangePws = datepipe.transform(this.lastChangePws, 'dd/MM/yyyy')
 
+      this.isLoading = false;
     })
   }
 

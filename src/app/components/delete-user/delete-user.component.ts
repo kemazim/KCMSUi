@@ -15,6 +15,10 @@ export class DeleteUserComponent implements OnInit {
   users: Users[] = [];
   isLoading!: boolean;
 
+  totalPages!: number;
+  currentPage: number = 1;
+  itemsPerPage: number = 15;
+
   constructor(private router: Router,
     private http: HttpClient,
     private userService: UserService) { }
@@ -30,7 +34,30 @@ export class DeleteUserComponent implements OnInit {
     this.userService.getUsers().subscribe(result => {
       this.users = result;
       this.isLoading = false;
+      this.calculateTotalPages();
     })
+  }
+
+  calculateTotalPages(): void {
+    this.totalPages = Math.ceil(this.users.length / this.itemsPerPage);
+  }
+
+  getPaginationArray(): number[] {
+    const pages: number[] = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
+
+  setCurrentPage(page: number): void {
+    this.currentPage = page;
+  }
+
+  getCurrentPageItems(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.users.slice(startIndex, endIndex);
   }
 
   confirmDeleteUser(name: any, userId: any) {

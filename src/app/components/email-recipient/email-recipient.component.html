@@ -62,8 +62,8 @@
             <div class="row">
                 <div class="mb-2 mt-1">
                     <label for="email">Email Recipient:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email recipient"
-                        name="email" formControlName="email">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email recipient" name="email"
+                        formControlName="email">
                 </div>
             </div>
             <div class="row">
@@ -85,10 +85,17 @@
                     <th style="text-align: center;">Firstname</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let email of emails">
+            <tbody *ngIf="isLoading">
+                <app-spinner [show]="isLoading"></app-spinner>
+            </tbody>
+            <tbody *ngIf="!isLoading">
+                <tr *ngFor="let email of emails.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                     <td>{{email.name}}</td>
                 </tr>
+                <div class="pagination">
+                    <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)" 
+                    [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
+                </div>
             </tbody>
         </table>
     </div>

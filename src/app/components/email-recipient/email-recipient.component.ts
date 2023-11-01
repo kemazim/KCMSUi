@@ -15,6 +15,11 @@ export class EmailRecipientComponent implements OnInit {
   userName: string = '';
   emailForm!: FormGroup;
   emails: MailRecipient[] = [];
+  isLoading!: boolean;
+
+  totalPages!: number;
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
 
   constructor(private router: Router,
     private mailService: MailService,
@@ -23,6 +28,7 @@ export class EmailRecipientComponent implements OnInit {
   ngOnInit(): void {
     let name = localStorage.getItem('userName');
     this.userName = name !== null ? name : '';
+    this.isLoading = true;
     this.loadEmails();
     this.emailValidator();
   }
@@ -30,7 +36,31 @@ export class EmailRecipientComponent implements OnInit {
   loadEmails() {
     this.mailService.getEmail().subscribe(result => {
       this.emails = result;
+      this.isLoading = false;
+      this.calculateTotalPages();
     })
+  }
+
+  calculateTotalPages(): void {
+    this.totalPages = Math.ceil(this.emails.length / this.itemsPerPage);
+  }
+
+  getPaginationArray(): number[] {
+    const pages: number[] = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
+
+  setCurrentPage(page: number): void {
+    this.currentPage = page;
+  }
+
+  getCurrentPageItems(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.emails.slice(startIndex, endIndex);
   }
 
   emailValidator() {
