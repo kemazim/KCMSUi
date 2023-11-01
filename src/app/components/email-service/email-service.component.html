@@ -113,7 +113,34 @@
         </form>
         <div>
             <div class="row mt-4">
-                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Kiosk Email</th>
+                                <th>Password</th>
+                                <th>Port</th>
+                                <th>Host</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let email of kioskEmail">
+                                <td>
+                                    <span>{{email.email}}</span>
+                                </td>
+                                <td>
+                                    <span>{{email.password}}</span>
+                                </td>
+                                <td>
+                                    <span>{{email.port}}</span>
+                                </td>
+                                <td>
+                                    <span>{{email.host}}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="col-md-6">
                     <input class="" type="text" class="form-control" id="title" placeholder="Title:" name="title">
                     <textarea name="message" id="message" style="width: 100%; height: 200px;">Your message</textarea>
