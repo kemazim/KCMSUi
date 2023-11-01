@@ -53,4 +53,9 @@ export class DeleteUserComponent implements OnInit {
   backPage() {
     this.router.navigate(['settings'])
   }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['mainPage'])
+  }
 }

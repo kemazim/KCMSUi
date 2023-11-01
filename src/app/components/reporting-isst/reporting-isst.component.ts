@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reporting-isst',
@@ -9,11 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class ReportingISSTComponent implements OnInit{
   userName: string = '';
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient,
+    private router:Router) {}
 
   ngOnInit(): void {
     let name = localStorage.getItem('userName');
     this.userName = name !== null ? name : '';
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['mainPage'])
+  }
 }

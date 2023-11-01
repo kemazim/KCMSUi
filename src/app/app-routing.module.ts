@@ -10,6 +10,7 @@ import { AddUserComponent } from "./components/add-user/add-user.component";
 import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
 import { EmailServiceComponent } from "./components/email-service/email-service.component";
 import { EmailRecipientComponent } from "./components/email-recipient/email-recipient.component";
+import { AuthGuard } from "./guard/auth.guard";
 
 const routes: Routes = [
     {
@@ -22,39 +23,48 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'reportingISST',
-        component: ReportingISSTComponent
+        component: ReportingISSTComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'myProfile',
-        component: MyProfileComponent
+        component: MyProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'settings',
-        component: SettingsComponent
+        component: SettingsComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'contactUs',
-        component: ContactUsComponent
+        component: ContactUsComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'addUser',
-        component: AddUserComponent
+        component: AddUserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'deleteUser',
-        component: DeleteUserComponent
+        component: DeleteUserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'emailService',
-        component: EmailServiceComponent
+        component: EmailServiceComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'emailRecipient',
-        component: EmailRecipientComponent
+        component: EmailRecipientComponent,
+        canActivate: [AuthGuard]
     }
 ]
 @NgModule({

@@ -33,4 +33,9 @@ export class SettingsComponent implements OnInit{
   emailRecipient() {
     this.router.navigate(['emailRecipient'])
   }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['mainPage'])
+  }
 }

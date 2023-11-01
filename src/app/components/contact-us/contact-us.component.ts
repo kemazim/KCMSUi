@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-  
+
   userName: string = '';
 
   constructor(private router: Router,
-    private http: HttpClient) {}
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     let name = localStorage.getItem('userName');
@@ -24,7 +24,12 @@ export class ContactUsComponent implements OnInit {
     let subject = "Support Inquiry";
     let body = "Hello, I need assistance with ...";
     let mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
+
     window.open(mailtoLink);
-}
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['mainPage'])
+  }
 }

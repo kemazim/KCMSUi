@@ -94,4 +94,9 @@ export class MyProfileComponent implements OnInit {
   backPage() {
     this.router.navigate(['dashboard'])
   }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['mainPage'])
+  }
 }
