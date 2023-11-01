@@ -52,7 +52,6 @@ export class EmailRecipientComponent implements OnInit {
           window.location.reload();
         },
         error: (err) => {
-          console.log(err)
           alert(err?.error.message);
           window.location.reload();
         }

@@ -35,7 +35,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       userId: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required]]
     });
 
     const localData = localStorage.getItem('signupUsers')
@@ -55,16 +55,13 @@ export class MainPageComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.status)
-    console.log(this.loginForm.value)
     if (this.loginForm.status == 'INVALID') {
-      alert("isi btul2 lah")
+      alert("Please check your username or password")
     } else {
       this.userAuth.login(this.loginForm.value).subscribe({
         next: (res) => {
           localStorage.setItem('userName', res.name)
           localStorage.setItem('userId', res.userId)
-          console.log(res)
           this.router.navigate(['dashboard'])
         },
         error: (err) => {

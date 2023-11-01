@@ -40,7 +40,6 @@ export class DeleteUserComponent implements OnInit {
   }
 
   deleteUser(name: any, userId: string) {
-    console.log(userId)
     this.userService.deleteUser(userId).subscribe(result => {
       alert("Username " + name + " successfully deleted");
       this.loadUser();
