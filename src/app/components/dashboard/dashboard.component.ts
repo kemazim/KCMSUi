@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,8 +10,7 @@ export class DashboardComponent implements OnInit{
  
   userName: string = '';
 
-  constructor(private router: Router,
-    private http: HttpClient) {
+  constructor(private router: Router) {
     let name = localStorage.getItem('userName');
     this.userName = name !== null ? name : '';
   }

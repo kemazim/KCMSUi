@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/users';
@@ -23,8 +22,7 @@ export class MyProfileComponent implements OnInit {
   changePasswordForm!: FormGroup;
   changePwdRequest = {};
 
-  constructor(private http: HttpClient,
-    private router: Router,
+  constructor(private router: Router,
     private userService: UserService,
     private fb: FormBuilder) { }
 

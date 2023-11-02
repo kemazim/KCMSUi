@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/users';
@@ -20,7 +19,6 @@ export class DeleteUserComponent implements OnInit {
   itemsPerPage: number = 15;
 
   constructor(private router: Router,
-    private http: HttpClient,
     private userService: UserService) { }
 
   ngOnInit(): void {

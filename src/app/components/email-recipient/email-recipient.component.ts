@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -71,7 +70,7 @@ export class EmailRecipientComponent implements OnInit {
 
   addEmail() {
     if (this.emailForm.status == 'INVALID') {
-      alert("Please enter current, new and re-enter password and make sure it is a valid Email address")
+      alert("Please enter a valid email address")
     } else {
       const emailRequest = {
         name: this.emailForm.value.email

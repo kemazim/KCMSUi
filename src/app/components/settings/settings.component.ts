@@ -1,4 +1,3 @@
-import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,8 +9,7 @@ import { Router } from '@angular/router';
 export class SettingsComponent implements OnInit{
   userName: string = '';
   
-  constructor(private router:Router,
-    private http:HttpClient) {}
+  constructor(private router:Router) {}
 
   ngOnInit(): void {
     let name = localStorage.getItem('userName');

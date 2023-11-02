@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +9,7 @@ export class HeaderComponent implements OnInit{
 
   userName: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
       let name = localStorage.getItem('userName');
