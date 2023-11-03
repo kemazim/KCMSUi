@@ -18,8 +18,12 @@ export class MailService {
   getKioskEmails() {
     return this.http.get<Mails[]>(`${this.mailUrl}getKioskEmails`)
   }
-  
+
   addEmail(mail: any) {
     return this.http.post<any>(`${this.mailUrl}addEmail`, mail)
+  }
+
+  addKioskEmail(kioskEmail: any) {
+    return this.http.post<any>(`${this.mailUrl}addKioskEmail`, kioskEmail)
   }
 }
