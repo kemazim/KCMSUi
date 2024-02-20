@@ -77,7 +77,7 @@ export class MyProfileComponent implements OnInit {
   loadUserDetails(userId: string) {
     this.userService.getUserDetails(userId).subscribe(result => {
       this.userDetails = result;
-
+      console.log(result);
       const datepipe = new DatePipe('en-US')
 
       this.loginDate = this.userDetails.lastLogin;
