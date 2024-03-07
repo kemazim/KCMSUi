@@ -1,0 +1,144 @@
+.row {
+    margin: 0.5em;
+    height: auto;
+}
+
+.btn {
+    width:10em;
+    margin: 1em;
+}
+
+.btnReference {
+    background-color: white;
+    border-radius: 30px;
+    outline-style: ridge;
+    outline-color: rgb(174, 174, 174);
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.active {
+    background-color: #d0d3d8;
+    border-radius: 1em;
+}
+
+.nav-item:hover {
+    background-color: #b7bdc6;
+    border-radius: 1em;
+    transition: background-color 0.5s, color 0.5s;
+    color: white;
+    opacity: 0.9;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    border-radius: 1em;
+    padding-top: 30px;
+    outline-style: ridge;
+    outline-color: rgb(174, 174, 174);
+}
+
+input {
+    outline: 2px solid rgb(174, 174, 174);
+}
+
+img {
+    height: 6em;
+    width: 8em;
+}
+
+.col {
+    padding-top: 3px
+}
+
+.col img {
+    height: 4em;
+    width: 4em;
+}
+
+.logout img {
+    height: 5em;
+    width: 5em;
+    margin-bottom: 20px;
+}
+
+
+p,
+b {
+    font-size: large;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-image: url('../../../assets/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    /* Prevent background from repeating */
+    overflow: hidden;
+}
+
+.top {
+    height: 0em;
+}
+
+.nav-link {
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    opacity: 0.5;
+
+}
+
+.btnHover:hover {
+    background-color: #0d6efd;
+    transition: background-color 0.3s, color 0.3s;
+    color: white;
+}
+
+.col-logout {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Add background color for better readability */
+    margin: auto; /* Center the table horizontally */
+}
+
+th, td {
+    text-align: left;
+    padding: 2px;
+    font-size: medium;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #393a3a;
+    color: white;
+}

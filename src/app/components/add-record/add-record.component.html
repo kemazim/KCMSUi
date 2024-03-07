@@ -1,0 +1,248 @@
+<body>
+    <div class="top">
+        <br>
+    </div>
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-sm-2 mt-4 d-flex">
+                <a>
+                    <img src="/..//src/assets/images/logo.png" alt="Home">
+                </a>
+            </div>
+            <div class="col-sm-8 btnReference">
+                <div class="container mt-4 box nav-justified">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <div class="col active" (click)="addRecord()">
+                                <img src="/..//src/assets/images/addRecord.png" alt="Home">
+                                <a class="nav-link" href="addRecord">Add Record</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="col" (click)="deleteRecord()">
+                                <img src="/..//src/assets/images/deleteRecord.png" alt="Home">
+                                <a class="nav-link" href="deleteRecord">Delete Record</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="col" (click)="searchRecord()">
+                                <img src="/..//src/assets/images/searchRecord.png" alt="Home">
+                                <a class="nav-link" href="searchRecord">Search Record</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="col" (click)="reporting()">
+                                <img src="/..//src/assets/images/reporting.png" alt="Home">
+                                <a class="nav-link" href="reporting">Reporting</a>
+                            </div>
+                        </li>
+                    </ul><br>
+                </div>
+            </div>
+            <div class="col-sm-2 mt-4">
+                <div class="col d-flex justify-content-between">
+                    <div class="container box nav-justified col-6">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <div class="col-logout">
+                                    <p style="font-weight: bold; font-size: 1.1em;">LOGGED AS</p>
+                                    <p style="color: blue; font-size: 1.1em; font-weight: bold;">
+                                        {{userName.toUpperCase()}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container box nav-justified col-4">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item logout">
+                                <img src="/..//src/assets/images/logout.png" (click)="logout()">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3"></div>
+
+    <div class="flexbox m-5 p-5 mt-2 pt-2 mb-2 pb-2" style="background-color: rgb(255, 255, 255); outline-style: ridge; outline-color:rgb(174, 174, 174);">
+        <p style="justify-content: center; align-items: center; display: flex;font-size: 1.5em;font-weight: bold;">ADD RECORD</p>
+        <div style="background-color: rgb(239, 239, 239);">
+            <form [formGroup]="addRecordForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="unitNo">UNIT NO</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="unitNo" placeholder="Enter Unit. No"
+                                name="unitNo" formControlName="unitNo">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="mailingAddress">MAILING ADDRESS</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="mailingAddress" placeholder="Enter Mailing Address"
+                                name="mailingAddress" formControlName="mailingAddress">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="rentalRate">RENTAL RATE</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="rentalRate" placeholder="Enter Rental Rate"
+                                name="rentalRate" formControlName="rentalRate">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="email">EMAIL ADDRESS</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address"
+                                name="email" formControlName="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="icNo">I/C NO.</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="icNo" placeholder="Enter I/C No" name="icNo"
+                                formControlName="icNo">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="companyName">COMPANY NAME</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name"
+                                name="companyName" formControlName="companyName">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="tenantName">TENANT NAME</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="tenantName" placeholder="Enter Tenant Name"
+                                name="tenantName" formControlName="tenantName">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <label for="contactNo">CONTACT NO.</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2 mt-1">
+                            <input type="text" class="form-control" id="contactNo" placeholder="Enter Contact No."
+                                name="contactNo" formControlName="contactNo">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary mt-4" (click)="addRecord()">ADD</button>
+                            </div>
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="flexbox m-5 p-5 mt-2 pt-2 mb-2 pb-2"
+        style="background-color: rgb(255, 255, 255); outline-style: ridge; outline-color:rgb(174, 174, 174);">
+        <div style="background-color: rgb(239, 239, 239);">
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO.</th>
+                        <th>UNIT NO.</th>
+                        <th>RENTAL RATE</th>
+                        <th>I/C NO.</th>
+                        <th>TENANT NAME</th>
+                        <th>CONTACT NO.</th>
+                        <th>MAILING ADDRESS</th>
+                        <th>EMAIL ADDRESS</th>
+                        <th>COMPANY NAME</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="isLoading">
+                    <app-spinner [show]="isLoading"></app-spinner>
+                </tbody>
+                <tbody *ngIf="!isLoading">
+                    <tr
+                        *ngFor="let records of records.slice((currentPage - 1) * itemsPerPage,currentPage*itemsPerPage); let i = index">
+                        <td>
+                            <span>{{i+1}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.unitNo}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.rentalRate}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.icNo}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.tenantName}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.contactNo}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.mailingAddress}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.email}}</span>
+                        </td>
+                        <td>
+                            <span>{{records.companyName}}</span>
+                        </td>
+                    </tr>
+                    <div class="pagination">
+                        <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
+                            [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</body>
