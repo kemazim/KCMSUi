@@ -73,7 +73,7 @@
             </tbody>
             <tbody *ngIf="!isLoading">
                 <tr *ngFor="let users of users.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-                    <td>
+                    <!-- <td>
                         <span>{{users.name}}</span>
                     </td>
                     <td>
@@ -91,7 +91,7 @@
                     <td>
                         <button class="deleteButton"
                             (click)="confirmDeleteUser(users.name,users.userId)">Delete</button>
-                    </td>
+                    </td> -->
                 </tr>
                 <div class="pagination">
                     <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)" 

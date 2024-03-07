@@ -1,15 +1,65 @@
 .row {
-    background-color: aliceblue;
     margin: 0.5em;
-    margin-left: 2em;
-    margin-right: 2em;
-    height: min-content;
-    border-radius: 2em;
+    height: auto;
+}
+
+.btnReference {
+    background-color: white;
+    border-radius: 30px;	
+    outline-style: ridge;
+	outline-color:rgb(174, 174, 174);
+}
+
+.welcome {
+    height: 100%;
+    width: 100%;
+}
+
+.welcome img {
+    height: auto;
+    width: auto;
+}
+
+.welcome p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    background-color:  #b7bdc6;
+    border-radius: 1em;
+    transition: background-color 0.5s, color 0.5s;
+    color: white;
+    opacity: 0.9;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
 }
 
 img {
     height: 6em;
-    width: 6em;
+    width: 8em;
+}
+
+.col {
+    padding-top: 3px
+}
+
+.col img {
+    height: 4em;
+    width: 4em;
+}
+
+.logout img {
+    height: 5em;
+    width: 5em;
+    margin-bottom: 20px;
 }
 
 .loginBox {
@@ -21,17 +71,6 @@ p,b {
     font-size: large;
 }
 
-.logoutButton {
-    background-color: #ee0505a7;
-    color: white;
-    padding: 0.5em 2em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    border-radius: 0.2em;
-}
-
 body{
 	margin: 0;
 	padding: 0;
@@ -39,19 +78,38 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background-image: url('../../../assets/images/background.jpg');
+	background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Prevent background from repeating */
 }
 
 .top {
     height: 0em;
 }
 
-.nav-pills .nav-link:hover , .logoutButton:hover{
-    opacity: 0.7;
+.nav-link {
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link:hover{
+    opacity: 0.5;
+
 }
 
 .btnHover:hover {
     background-color:  #0d6efd;
     transition: background-color 0.3s, color 0.3s;
     color: white;
+}
+
+.col-logout {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-6 {
+    margin: 0;
+    padding: 0;
 }

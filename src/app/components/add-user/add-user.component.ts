@@ -26,7 +26,7 @@ export class AddUserComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit(): void {
-    let name = localStorage.getItem('userName');
+    let name = localStorage.getItem('username');
     this.userName = name !== null ? name : '';
 
     this.isLoading = true;

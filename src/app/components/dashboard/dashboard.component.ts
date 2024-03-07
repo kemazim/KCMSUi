@@ -9,10 +9,14 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit{
  
   userName: string = '';
+  lastLogin: string = '';
 
   constructor(private router: Router) {
-    let name = localStorage.getItem('userName');
+    let name = localStorage.getItem('username');
+    let dateLogin = localStorage.getItem('lastLogin');
     this.userName = name !== null ? name : '';
+    this.lastLogin = dateLogin !== null ? dateLogin : '';
+
   }
   
   ngOnInit(): void {
@@ -24,4 +28,19 @@ export class DashboardComponent implements OnInit{
     this.router.navigate(['mainPage'])
   }
 
+  addRecord(){
+    this.router.navigate(['addRecord'])
+  }
+
+  deleteRecord() {
+    this.router.navigate(['dashboard'])
+  }
+
+  searchRecord() {
+    this.router.navigate(['dashboard'])
+  }
+
+  reporting() {
+    this.router.navigate(['dashboard'])
+  }
 }

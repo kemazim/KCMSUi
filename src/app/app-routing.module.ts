@@ -11,6 +11,7 @@ import { DeleteUserComponent } from "./components/delete-user/delete-user.compon
 import { EmailServiceComponent } from "./components/email-service/email-service.component";
 import { EmailRecipientComponent } from "./components/email-recipient/email-recipient.component";
 import { AuthGuard } from "./guard/auth.guard";
+import { AddRecordComponent } from "./components/add-record/add-record.component";
 
 const routes: Routes = [
     {
@@ -65,6 +66,10 @@ const routes: Routes = [
         path: 'emailRecipient',
         component: EmailRecipientComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'addRecord',
+        component: AddRecordComponent
     }
 ]
 @NgModule({

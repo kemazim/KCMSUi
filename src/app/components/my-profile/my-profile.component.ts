@@ -27,7 +27,7 @@ export class MyProfileComponent implements OnInit {
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    let name = localStorage.getItem('userName');
+    let name = localStorage.getItem('username');
     this.userName = name !== null ? name : '';
     this.isLoading = true;
 
@@ -80,8 +80,8 @@ export class MyProfileComponent implements OnInit {
       console.log(result);
       const datepipe = new DatePipe('en-US')
 
-      this.loginDate = this.userDetails.lastLogin;
-      this.lastChangePws = this.userDetails.lastChangePass
+      // this.loginDate = this.userDetails.lastLogin;
+      // this.lastChangePws = this.userDetails.lastChangePass
 
       //change login date & lastchangepws to dd/mm/yyyy
       this.loginDate = datepipe.transform(this.loginDate, 'dd/MM/yyyy')

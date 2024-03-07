@@ -17,6 +17,7 @@ import { EmailServiceComponent } from './components/email-service/email-service.
 import { EmailRecipientComponent } from './components/email-recipient/email-recipient.component'
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AddRecordComponent } from './components/add-record/add-record.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     EmailServiceComponent,
     EmailRecipientComponent,
     SpinnerComponent,
+    AddRecordComponent,
   ],
   imports: [
     BrowserModule,

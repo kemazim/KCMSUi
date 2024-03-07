@@ -22,7 +22,7 @@ export class DeleteUserComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit(): void {
-    let userName = localStorage.getItem('userName');
+    let userName = localStorage.getItem('username');
     this.userName = userName !== null ? userName : '';
     this.isLoading = true;
     this.loadUser();

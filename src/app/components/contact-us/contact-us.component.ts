@@ -13,7 +13,7 @@ export class ContactUsComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    let name = localStorage.getItem('userName');
+    let name = localStorage.getItem('username');
     this.userName = name !== null ? name : '';
   }
 

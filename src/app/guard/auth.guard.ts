@@ -11,7 +11,8 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (localStorage.getItem('userName') && localStorage.getItem('userId')) {
+    // if (localStorage.getItem('userName') && localStorage.getItem('userId')) {
+      if (localStorage.getItem('username') && localStorage.getItem('name')) {
       // User is logged in, allow navigation
       this.setLogoutTimeout();
       return true;
