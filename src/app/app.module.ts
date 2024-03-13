@@ -18,6 +18,8 @@ import { EmailRecipientComponent } from './components/email-recipient/email-reci
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddRecordComponent } from './components/add-record/add-record.component';
+import { SearchRecordComponent } from './components/search-record/search-record.component';
+import { DeleteRecordComponent } from './components/delete-record/delete-record.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AddRecordComponent } from './components/add-record/add-record.component
     EmailRecipientComponent,
     SpinnerComponent,
     AddRecordComponent,
+    SearchRecordComponent,
+    DeleteRecordComponent,
   ],
   imports: [
     BrowserModule,

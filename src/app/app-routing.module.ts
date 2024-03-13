@@ -12,6 +12,8 @@ import { EmailServiceComponent } from "./components/email-service/email-service.
 import { EmailRecipientComponent } from "./components/email-recipient/email-recipient.component";
 import { AuthGuard } from "./guard/auth.guard";
 import { AddRecordComponent } from "./components/add-record/add-record.component";
+import { SearchRecordComponent } from "./components/search-record/search-record.component";
+import { DeleteRecordComponent } from "./components/delete-record/delete-record.component";
 
 const routes: Routes = [
     {
@@ -69,7 +71,18 @@ const routes: Routes = [
     },
     {
         path: 'addRecord',
-        component: AddRecordComponent
+        component: AddRecordComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'searchRecord',
+        component: SearchRecordComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'deleteRecord',
+        component: DeleteRecordComponent,
+        canActivate: [AuthGuard]
     }
 ]
 @NgModule({

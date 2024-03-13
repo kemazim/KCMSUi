@@ -4,7 +4,7 @@
 }
 
 .btn {
-    width:10em;
+    width: 10em;
     margin: 1em;
 }
 
@@ -93,7 +93,7 @@ body {
     font-family: 'Jost', sans-serif;
     background-image: url('../../../assets/images/background.jpg');
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     /* Prevent background from repeating */
     overflow: hidden;
 }
@@ -133,12 +133,16 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    background-color: rgba(255, 255, 255, 0.8); /* Add background color for better readability */
-    margin: auto; /* Center the table horizontally */
+    overflow-y: auto;
+    /* Enable vertical scrolling if needed */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Add background color for better readability */
+    margin: auto;
+    /* Center the table horizontally */
 }
 
-th, td {
+th,
+td {
     text-align: left;
     padding: 2px;
     font-size: medium;
@@ -151,4 +155,10 @@ tr:nth-child(even) {
 th {
     background-color: #393a3a;
     color: white;
+}
+.upperBox {
+    border-radius: 1em;
+    padding-top: 30px;
+    outline-style: ridge;
+    outline-color: rgb(174, 174, 174);
 }

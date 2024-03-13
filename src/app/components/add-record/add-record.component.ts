@@ -80,12 +80,9 @@ export class AddRecordComponent implements OnInit{
   }
 
   addRecord() {
-    console.log("tst")
     if (this.addRecordForm.status == "INVALID") {
       alert("Please insert all details");
-      console.log("tstdwdwd")
     } else {
-      console.log("tst2")
       this.addRecordRequest = {
         unitNo: this.addRecordForm.value.unitNo,
         rentalRate: this.addRecordForm.value.rentalRate,
@@ -98,9 +95,12 @@ export class AddRecordComponent implements OnInit{
       } 
       this.recordService.createRecord(this.addRecordRequest).subscribe({
         next: (res) => {
-          alert("User successfully added");
           this.loadRecord();
           this.addRecordForm.reset();
+          const modelDiv = document.getElementById('myModal');
+          if(modelDiv!= null){
+              modelDiv.style.display = 'block';
+          }
         },
         error: (err) => {
           alert(err?.error.message);
@@ -108,6 +108,13 @@ export class AddRecordComponent implements OnInit{
         }
       });
     }
+  }
+
+  closeModal() {
+    const modelDiv = document.getElementById('myModal');
+      if(modelDiv!= null){
+          modelDiv.style.display = 'none';
+      } 
   }
 
   clear() {
@@ -118,19 +125,19 @@ export class AddRecordComponent implements OnInit{
     this.router.navigate(['mainPage'])
   }
 
-  // addRecord(){
-  //   this.router.navigate(['addRecord'])
-  // }
-
-  deleteRecord() {
-    this.router.navigate(['dashboard'])
+  addRecordPage(){
+    this.router.navigate(['addRecord'])
   }
 
-  searchRecord() {
-    this.router.navigate(['dashboard'])
+  deleteRecordPage() {
+    this.router.navigate(['deleteRecord'])
   }
 
-  reporting() {
+  searchRecordPage() {
+    this.router.navigate(['searchRecord'])
+  }
+
+  reportingPage() {
     this.router.navigate(['dashboard'])
   }
 }

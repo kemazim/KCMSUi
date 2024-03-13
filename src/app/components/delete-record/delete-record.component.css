@@ -4,7 +4,7 @@
 }
 
 .btn {
-    width:10em;
+    width: 10em;
     margin: 1em;
 }
 
@@ -13,6 +13,22 @@
     border-radius: 30px;
     outline-style: ridge;
     outline-color: rgb(174, 174, 174);
+}
+
+.delete-button {
+    width: 4em;
+    height: 4em;
+    background-color: white;
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    outline: none; /* Remove outline */
+}
+
+.delete-img {
+    width: 3em;
+    height: 3em;
 }
 
 .nav-item {
@@ -93,7 +109,7 @@ body {
     font-family: 'Jost', sans-serif;
     background-image: url('../../../assets/images/background.jpg');
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     /* Prevent background from repeating */
     overflow: hidden;
 }
@@ -133,12 +149,16 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    background-color: rgba(255, 255, 255, 0.8); /* Add background color for better readability */
-    margin: auto; /* Center the table horizontally */
+    overflow-y: auto;
+    /* Enable vertical scrolling if needed */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Add background color for better readability */
+    margin: auto;
+    /* Center the table horizontally */
 }
 
-th, td {
+th,
+td {
     text-align: left;
     padding: 2px;
     font-size: medium;
@@ -151,4 +171,10 @@ tr:nth-child(even) {
 th {
     background-color: #393a3a;
     color: white;
+}
+.upperBox {
+    border-radius: 1em;
+    padding-top: 30px;
+    outline-style: ridge;
+    outline-color: rgb(174, 174, 174);
 }

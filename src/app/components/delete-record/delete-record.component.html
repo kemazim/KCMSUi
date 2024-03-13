@@ -13,13 +13,13 @@
                 <div class="container mt-4 box nav-justified">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <div class="col active" (click)="addRecordPage()">
+                            <div class="col" (click)="addRecordPage()">
                                 <img src="/..//src/assets/images/addRecord.png" alt="Home">
                                 <a class="nav-link" href="addRecord">Add Record</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <div class="col" (click)="deleteRecordPage()">
+                            <div class="col active" (click)="deleteRecordPage()">
                                 <img src="/..//src/assets/images/deleteRecord.png" alt="Home">
                                 <a class="nav-link" href="deleteRecord">Delete Record</a>
                             </div>
@@ -65,126 +65,54 @@
     </div>
     <div class="mt-3"></div>
 
-    <div class="flexbox m-5 p-5 mt-2 pt-2 mb-2 pb-2" style="background-color: rgb(255, 255, 255); outline-style: ridge; outline-color:rgb(174, 174, 174);">
-        <p style="justify-content: center; align-items: center; display: flex;font-size: 1.5em;font-weight: bold;">ADD RECORD</p>
-        <div style="background-color: rgb(239, 239, 239);">
-            <form [formGroup]="addRecordForm">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="unitNo">UNIT NO</label>
-                        </div>
+    <div class="flexbox m-5 p-5 mt-2 pt-2 mb-2 pb-2"
+        style="background-color: rgb(255, 255, 255); outline-style: ridge; outline-color:rgb(174, 174, 174);">
+        <p style="justify-content: center; align-items: center; display: flex;font-size: 1.5em;font-weight: bold;">
+            DELETE RECORD</p>
+        <div style="background-color: rgb(239, 239, 239);" class="upperBox">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-2 mt-1">
+                        <label for="unitNo">UNIT NO</label>
                     </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="unitNo" placeholder="Enter Unit. No"
-                                name="unitNo" formControlName="unitNo">
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-2 mt-1">
+                        <input type="text" class="form-control" id="srchBoxUnitNo" placeholder="Enter Unit. No"
+                            name="srchBoxUnitNo" [(ngModel)]="srchBoxUnitNo">
                     </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="mailingAddress">MAILING ADDRESS</label>
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-2 mt-1">
+                        <label for="mailingAddress">IC NUMBER</label>
                     </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="mailingAddress" placeholder="Enter Mailing Address"
-                                name="mailingAddress" formControlName="mailingAddress">
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-2 mt-1">
+                        <input type="text" class="form-control" id="srchBoxIC" placeholder="Enter IC Number"
+                            name="srchBoxIC" [(ngModel)]="srchBoxIC">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary mt-4" (click)="searchRecord()">SEARCH</button>
+                        </div>
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="rentalRate">RENTAL RATE</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="rentalRate" placeholder="Enter Rental Rate"
-                                name="rentalRate" formControlName="rentalRate">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="email">EMAIL ADDRESS</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address"
-                                name="email" formControlName="email">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="icNo">I/C NO.</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="icNo" placeholder="Enter I/C No" name="icNo"
-                                formControlName="icNo">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="companyName">COMPANY NAME</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name"
-                                name="companyName" formControlName="companyName">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="tenantName">TENANT NAME</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="tenantName" placeholder="Enter Tenant Name"
-                                name="tenantName" formControlName="tenantName">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <label for="contactNo">CONTACT NO.</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="contactNo" placeholder="Enter Contact No."
-                                name="contactNo" formControlName="contactNo">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary mt-4" (click)="addRecord()">ADD</button>
-                            </div>
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-            </form>
+                <div class="col-md-3"></div>
+            </div>
         </div>
     </div>
 
     <div class="mt-3"></div>
-    
+
     <div class="flexbox m-5 p-5 mt-2 pt-2 mb-2 pb-2"
         style="background-color: rgb(255, 255, 255); outline-style: ridge; outline-color:rgb(174, 174, 174);">
         <div style="background-color: rgb(239, 239, 239);">
@@ -200,6 +128,7 @@
                         <th>MAILING ADDRESS</th>
                         <th>EMAIL ADDRESS</th>
                         <th>COMPANY NAME</th>
+                        <th>DELETE RECORD</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="isLoading">
@@ -207,7 +136,7 @@
                 </tbody>
                 <tbody *ngIf="!isLoading">
                     <tr
-                        *ngFor="let records of records.slice((currentPage - 1) * itemsPerPage,currentPage*itemsPerPage); let i = index">
+                        *ngFor="let records of filterList.slice((currentPage - 1) * itemsPerPage,currentPage*itemsPerPage); let i = index">
                         <td>
                             <span>{{i+1}}</span>
                         </td>
@@ -235,6 +164,12 @@
                         <td>
                             <span>{{records.companyName}}</span>
                         </td>
+                        <td>
+                            <button type="button" class="delete-button" (click)="openDeleteConfirmation(records)">
+                                <img class="delete-img" src="/..//src/assets/images/deleteButton.png"
+                                    alt="Delete Record">
+                            </button>
+                        </td>
                     </tr>
                     <div class="pagination">
                         <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
@@ -246,18 +181,54 @@
     </div>
 </body>
 
+<!-- <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal"></button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" style="background-color: darkslategrey;color: white;">
-                <h4 class="modal-title">Record Added</h4>
+                <h4 class="modal-title">Record Deleted</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
             </div>
             <div class="modal-body">
-                <p>Record successfully added</p>
+                <p>Record for IC No. {{selectedRecord?.icNo}} successfully deleted</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="confirmModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: darkslategrey;color: white;">
+                <h4 class="modal-title">Confirm Delete?</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModalConfirmDelete()"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Confirm Delete for Unit No. : {{selectedRecord?.unitNo}} , and IC No. : {{selectedRecord?.icNo}}</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteRecord(selectedRecord)">Yes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="closeModalConfirmDelete()">Cancel</button>
             </div>
         </div>
     </div>

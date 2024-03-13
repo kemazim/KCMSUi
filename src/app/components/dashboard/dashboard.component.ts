@@ -33,11 +33,11 @@ export class DashboardComponent implements OnInit{
   }
 
   deleteRecord() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['deleteRecord'])
   }
 
   searchRecord() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['searchRecord'])
   }
 
   reporting() {
