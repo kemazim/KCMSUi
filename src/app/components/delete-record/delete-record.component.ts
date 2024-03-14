@@ -152,6 +152,6 @@ export class DeleteRecordComponent {
   }
 
   reportingPage() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['reporting'])
   }
 }

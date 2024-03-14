@@ -1,53 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Records } from 'src/app/models/records';
 import { RecordService } from 'src/app/services/recordService/record.service';
+import { TransactionService } from 'src/app/services/transactionService/transaction.service';
 
 @Component({
-  selector: 'app-search-record',
-  templateUrl: './search-record.component.html',
-  styleUrls: ['./search-record.component.css']
+  selector: 'app-reporting',
+  templateUrl: './reporting.component.html',
+  styleUrls: ['./reporting.component.css']
 })
-export class SearchRecordComponent implements OnInit {
+export class ReportingComponent implements OnInit{
 
   isLoading!: boolean;
   userName: string = '';
-  records: Records[] = [];
-  filterList: Records[] = [];
+  trans: any[] = [];
+  filterList: any[] = [];
 
   totalPages!: number;
   currentPage: number = 1;
   itemsPerPage: number = 10;
 
+  srchBoxTransNo: string = '';
   srchBoxUnitNo: string = '';
-  srchBoxIC: string = '';
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private fb: FormBuilder,
-    private recordService: RecordService) {
+    private recordService: RecordService,
+    private transService: TransactionService
+    ) {
   }
 
   ngOnInit(): void {
     let name = localStorage.getItem('username');
     this.userName = name !== null ? name : '';
-
     this.isLoading = true;
     this.loadRecord();
   }
 
   loadRecord() {
-    this.recordService.getRecords().subscribe(result => {
+    this.transService.getTransactions().subscribe(result => {
       console.log(result)
-      this.records = result;
-      this.filterList = this.records;
+      this.trans = result;
+      this.filterList = this.trans;
       this.isLoading = false;
       this.calculateTotalPages();
     })
   }
 
   calculateTotalPages(): void {
-    this.totalPages = Math.ceil(this.records.length / this.itemsPerPage);
+    this.totalPages = Math.ceil(this.trans.length / this.itemsPerPage);
   }
 
   getPaginationArray(): number[] {
@@ -65,34 +68,33 @@ export class SearchRecordComponent implements OnInit {
   getCurrentPageItems(): any[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.records.slice(startIndex, endIndex);
+    return this.trans.slice(startIndex, endIndex);
   }
 
   searchRecord() {
-    const icNoFilter = this.srchBoxIC;
+    const transNoFilter = this.srchBoxTransNo;
     const unitNoFilter = this.srchBoxUnitNo;
-    if (icNoFilter && unitNoFilter) {
-      this.filterList = this.records.filter(record =>
-        record.unitNo?.toLowerCase() === unitNoFilter.toLowerCase() && record.icNo === icNoFilter
+    if (transNoFilter && unitNoFilter) {
+      this.filterList = this.trans.filter(record =>
+        record.unitNo?.toLowerCase() === unitNoFilter.toLowerCase() && record.transNo.toLowerCase() === transNoFilter
       );
     }
     else if (unitNoFilter) {
-      this.filterList = this.records.filter(record =>
+      this.filterList = this.trans.filter(record =>
         record.unitNo?.toLowerCase() === unitNoFilter.toLowerCase());
     }
-    else if (icNoFilter) {
-      this.filterList = this.records.filter(record =>
-        record.icNo === icNoFilter)
-      console.log(this.filterList)
+    else if (transNoFilter) {
+      this.filterList = this.trans.filter(record =>
+        record.transNo.toLowerCase() === transNoFilter)
     }
     else {
-      this.filterList = this.records.slice();
+      this.filterList = this.trans.slice();
     }
   }
 
   clear() {
     this.loadRecord();
-    this.srchBoxIC = '';
+    this.srchBoxTransNo = '';
     this.srchBoxUnitNo = '';
   }
 
@@ -114,6 +116,6 @@ export class SearchRecordComponent implements OnInit {
   }
 
   reportingPage() {
-    this.router.navigate(['reporting'])
+    this.router.navigate(['dashboard'])
   }
 }

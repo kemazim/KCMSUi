@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 
 export class MainPageComponent implements OnInit {
 
+  isLoading!: boolean;
   loginForm!: FormGroup;
   loginUsers: any[] = [];
   loginDetails: any = {
@@ -35,18 +36,20 @@ export class MainPageComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value)
     if (this.loginForm.status == 'INVALID') {
       alert("Please check your username or password")
     } else {
+      this.isLoading = true;
       this.userAuth.login(this.loginForm.value).subscribe({
         next: (res) => {
           localStorage.setItem('username', res.username)
           localStorage.setItem('name', res.name)
           localStorage.setItem('lastLogin', res.lastLogin)
+          this.isLoading = false;
           this.router.navigate(['dashboard'])
         },
         error: (err) => {
+          this.isLoading = false;
           alert(err?.error.message)
         }
       });

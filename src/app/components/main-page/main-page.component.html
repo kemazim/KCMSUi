@@ -4,7 +4,7 @@
 </head>
 
 <body>
-	<div class="main">
+	<div class="main" *ngIf="!isLoading">
 		<label for="login">Kiosk Centralized Monitoring System</label>
 		<form [formGroup]="loginForm" class="login-form">
 			<div class="row">
@@ -15,7 +15,6 @@
 					<input formControlName="username" type="text" name="username" placeholder="User Id" required=""
 						[(ngModel)]="loginDetails.username">
 				</div>
-
 			</div>
 			<div class="row">
 				<div class="col-25">
@@ -25,7 +24,6 @@
 					<input formControlName="password" type="password" name="pswd" placeholder="Password" required=""
 						[(ngModel)]="loginDetails.password">
 				</div>
-
 			</div>
 			<div class="valid"
 				*ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
@@ -33,5 +31,8 @@
 			</div>
 			<button (click)="login( )">Login</button>
 		</form>
+	</div>
+	<div *ngIf="isLoading">
+		<app-spinner [show]="isLoading"></app-spinner>
 	</div>
 </body>

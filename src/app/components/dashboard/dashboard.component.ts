@@ -41,6 +41,6 @@ export class DashboardComponent implements OnInit{
   }
 
   reporting() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['reporting'])
   }
 }

@@ -22,7 +22,8 @@ export class AddRecordComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 10;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private fb: FormBuilder,
     private recordService: RecordService) {
   }
@@ -50,7 +51,6 @@ export class AddRecordComponent implements OnInit {
 
   loadRecord() {
     this.recordService.getRecords().subscribe(result => {
-      console.log(result)
       this.records = result;
       this.isLoading = false;
       this.calculateTotalPages();
@@ -126,14 +126,14 @@ export class AddRecordComponent implements OnInit {
           else {
             this.modalString = err?.error.message;
           }
-            this.closeModalConfirm();
-            const modelDiv = document.getElementById('errorModal');
-            if (modelDiv != null) {
-              modelDiv.style.display = 'block';
-            }
-            this.addRecordForm.reset();
+          this.closeModalConfirm();
+          const modelDiv = document.getElementById('errorModal');
+          if (modelDiv != null) {
+            modelDiv.style.display = 'block';
           }
-        
+          this.addRecordForm.reset();
+        }
+
       });
     }
   }
@@ -181,6 +181,6 @@ export class AddRecordComponent implements OnInit {
   }
 
   reportingPage() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['reporting'])
   }
 }
