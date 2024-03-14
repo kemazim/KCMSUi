@@ -16,8 +16,8 @@
 }
 
 .delete-button {
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
     background-color: white;
     border: none; /* Remove border */
     background: none; /* Remove background */
@@ -27,8 +27,8 @@
 }
 
 .delete-img {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .nav-item {
@@ -177,4 +177,32 @@ th {
     padding-top: 30px;
     outline-style: ridge;
     outline-color: rgb(174, 174, 174);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.pagination-button {
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination-button:hover {
+    background-color: #e9e9e9;
+}
+
+.pagination-button.current-page {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
 }

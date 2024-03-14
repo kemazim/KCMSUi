@@ -149,27 +149,27 @@
                             <span>{{records.icNo}}</span>
                         </td>
                         <td>
-                            <span>{{records.tenantName}}</span>
+                            <span>{{records.tenantName | titlecase}}</span>
                         </td>
                         <td>
                             <span>{{records.contactNo}}</span>
                         </td>
                         <td>
-                            <span>{{records.mailingAddress}}</span>
+                            <span>{{records.mailingAddress | titlecase}}</span>
                         </td>
                         <td>
                             <span>{{records.email}}</span>
                         </td>
                         <td>
-                            <span>{{records.companyName}}</span>
+                            <span>{{records.companyName | titlecase}}</span>
                         </td>
                     </tr>
-                    <div class="pagination">
-                        <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
-                            [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
-                    </div>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
+                    [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
+            </div>
         </div>
     </div>
 

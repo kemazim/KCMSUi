@@ -9,7 +9,7 @@ import { RecordService } from 'src/app/services/recordService/record.service';
   templateUrl: './add-record.component.html',
   styleUrls: ['./add-record.component.css']
 })
-export class AddRecordComponent implements OnInit{
+export class AddRecordComponent implements OnInit {
 
   addRecordForm!: FormGroup;
   addRecordRequest = {};
@@ -17,12 +17,12 @@ export class AddRecordComponent implements OnInit{
   userName: string = '';
   lastLogin: string = '';
   records: Records[] = [];
-
+  modalString: string = '';
   totalPages!: number;
   currentPage: number = 1;
   itemsPerPage: number = 10;
 
-  constructor(private router: Router,     
+  constructor(private router: Router,
     private fb: FormBuilder,
     private recordService: RecordService) {
   }
@@ -63,7 +63,7 @@ export class AddRecordComponent implements OnInit{
 
   getPaginationArray(): number[] {
     const pages: number[] = [];
-    for(let i =1; i <= this.totalPages; i++){
+    for (let i = 1; i <= this.totalPages; i++) {
       pages.push(i);
     }
     return pages;
@@ -79,6 +79,22 @@ export class AddRecordComponent implements OnInit{
     return this.records.slice(startIndex, endIndex);
   }
 
+  confirmModal() {
+    if (this.addRecordForm.status == "INVALID") {
+      this.modalString = 'Please insert all details';
+      const modelDiv = document.getElementById('errorModal');
+      if (modelDiv != null) {
+        modelDiv.style.display = 'block';
+      }
+    } else {
+      const modelDiv = document.getElementById('confirmModal');
+      if (modelDiv != null) {
+        modelDiv.style.display = 'block';
+      }
+    }
+
+  }
+
   addRecord() {
     if (this.addRecordForm.status == "INVALID") {
       alert("Please insert all details");
@@ -92,29 +108,56 @@ export class AddRecordComponent implements OnInit{
         mailingAddress: this.addRecordForm.value.mailingAddress,
         companyName: this.addRecordForm.value.companyName,
         contactNo: this.addRecordForm.value.contactNo,
-      } 
+      }
       this.recordService.createRecord(this.addRecordRequest).subscribe({
         next: (res) => {
           this.loadRecord();
           this.addRecordForm.reset();
+          this.closeModalConfirm();
           const modelDiv = document.getElementById('myModal');
-          if(modelDiv!= null){
-              modelDiv.style.display = 'block';
+          if (modelDiv != null) {
+            modelDiv.style.display = 'block';
           }
         },
         error: (err) => {
-          alert(err?.error.message);
-          this.addRecordForm.reset();
-        }
+          if (err.statusText == "Bad Request") {
+            this.modalString = "Please make sure your input correct";
+          }
+          else {
+            this.modalString = err?.error.message;
+          }
+            this.closeModalConfirm();
+            const modelDiv = document.getElementById('errorModal');
+            if (modelDiv != null) {
+              modelDiv.style.display = 'block';
+            }
+            this.addRecordForm.reset();
+          }
+        
       });
+    }
+  }
+
+  closeModalError() {
+    this.modalString = '';
+    const modelDiv = document.getElementById('errorModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
+
+  closeModalConfirm() {
+    const modelDiv = document.getElementById('confirmModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
     }
   }
 
   closeModal() {
     const modelDiv = document.getElementById('myModal');
-      if(modelDiv!= null){
-          modelDiv.style.display = 'none';
-      } 
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
   }
 
   clear() {
@@ -125,7 +168,7 @@ export class AddRecordComponent implements OnInit{
     this.router.navigate(['mainPage'])
   }
 
-  addRecordPage(){
+  addRecordPage() {
     this.router.navigate(['addRecord'])
   }
 

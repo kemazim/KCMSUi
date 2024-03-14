@@ -5,63 +5,33 @@
 
 <body>
 	<div class="main">
-			<label for="login">Kiosk Centralized Monitoring System</label>
-			<form [formGroup]="loginForm" class="login-form">
-				<div class="row">
-					<div class="col-25">
-						<label for="userName">User ID</label>
-					</div>
-					<div class="col-75">
-						<input formControlName="username" type="text" name="username" placeholder="User Id" required=""
-						[(ngModel)]="loginDetails.username">
-					</div>
-					
+		<label for="login">Kiosk Centralized Monitoring System</label>
+		<form [formGroup]="loginForm" class="login-form">
+			<div class="row">
+				<div class="col-25">
+					<label for="userName">User ID</label>
 				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="pwd">Password</label>
-					</div>
-					<div class="col-75">
-						<input formControlName="password" type="password" name="pswd" placeholder="Password" required=""
-						[(ngModel)]="loginDetails.password">
-					</div>
-					
-				</div>
-				<div class="valid" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
-					*Password must be at least 5 characters long.
-				  </div>
-				<button (click)="login( )"  >Login</button>
-			</form>
-		<!-- </div> -->
-		<!-- <input type="checkbox" id="chk" aria-hidden="true">
-
-		<div class="signup">
-			<form>
-				<label for="chk" aria-hidden="true">Sign up</label>
-				<input type="text" name="txt" placeholder="User name" required="" [(ngModel)]="signupDetails.userName">
-				<input type="email" name="email" placeholder="Email" required="" [(ngModel)]="signupDetails.email">
-				<input type="password" name="pswd" placeholder="Password" required=""
-					[(ngModel)]="signupDetails.password">
-				<button (click)="signUp()">Sign up</button>
-			</form>
-		</div>
-
-		<div class="login">
-			<form [formGroup]="loginForm">
-				<label for="chk" aria-hidden="true">Login</label>
-				<div>
-					<input formControlName="username" type="text" name="username" placeholder="Username" required=""
+				<div class="col-75">
+					<input formControlName="username" type="text" name="username" placeholder="User Id" required=""
 						[(ngModel)]="loginDetails.username">
 				</div>
-				<div>
+
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="pwd">Password</label>
+				</div>
+				<div class="col-75">
 					<input formControlName="password" type="password" name="pswd" placeholder="Password" required=""
 						[(ngModel)]="loginDetails.password">
 				</div>
-				<div class="valid" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
-					*Password must be at least 5 characters long.
-				  </div>
-				<button (click)="login( )"  >Login</button>
-			</form>
-		</div> -->
+
+			</div>
+			<div class="valid"
+				*ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+				*Password must be at least 5 characters long.
+			</div>
+			<button (click)="login( )">Login</button>
+		</form>
 	</div>
 </body>

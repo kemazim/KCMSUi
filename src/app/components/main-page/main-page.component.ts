@@ -12,19 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 export class MainPageComponent implements OnInit {
 
   loginForm!: FormGroup;
-  signupUsers: any[] = [];
-  signupDetails: any = {
-    userName: '',
-    email: '',
-    password: ''
-  }
-
   loginUsers: any[] = [];
   loginDetails: any = {
     username: '',
     password: ''
   }
-
 
   constructor(
     private router: Router,
@@ -33,25 +25,13 @@ export class MainPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    localStorage.setItem('username', '')
+    localStorage.setItem('name', '')
+    localStorage.setItem('lastLogin', '')
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
-
-    const localData = localStorage.getItem('signupUsers')
-    if (localData != null) {
-      this.signupUsers = JSON.parse(localData)
-    }
-  }
-
-  signUp() {
-    this.signupUsers.push(this.signupDetails)
-    localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers))
-    this.signupDetails = {
-      userName: '',
-      email: '',
-      password: ''
-    }
   }
 
   login() {
@@ -61,7 +41,6 @@ export class MainPageComponent implements OnInit {
     } else {
       this.userAuth.login(this.loginForm.value).subscribe({
         next: (res) => {
-          console.log(res)
           localStorage.setItem('username', res.username)
           localStorage.setItem('name', res.name)
           localStorage.setItem('lastLogin', res.lastLogin)

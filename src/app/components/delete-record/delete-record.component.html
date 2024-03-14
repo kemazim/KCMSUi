@@ -150,19 +150,19 @@
                             <span>{{records.icNo}}</span>
                         </td>
                         <td>
-                            <span>{{records.tenantName}}</span>
+                            <span>{{records.tenantName | titlecase}}</span>
                         </td>
                         <td>
                             <span>{{records.contactNo}}</span>
                         </td>
                         <td>
-                            <span>{{records.mailingAddress}}</span>
+                            <span>{{records.mailingAddress | titlecase}}</span>
                         </td>
                         <td>
                             <span>{{records.email}}</span>
                         </td>
                         <td>
-                            <span>{{records.companyName}}</span>
+                            <span>{{records.companyName | titlecase}}</span>
                         </td>
                         <td>
                             <button type="button" class="delete-button" (click)="openDeleteConfirmation(records)">
@@ -171,12 +171,12 @@
                             </button>
                         </td>
                     </tr>
-                    <div class="pagination">
-                        <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
-                            [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
-                    </div>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button *ngFor="let page of getPaginationArray()" (click)="setCurrentPage(page)"
+                    [class.current-page]="currentPage === page" class="pagination-button">{{ page }}</button>
+            </div>
         </div>
     </div>
 </body>
@@ -221,14 +221,17 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: darkslategrey;color: white;">
                 <h4 class="modal-title">Confirm Delete?</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModalConfirmDelete()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    (click)="closeModalConfirmDelete()"></button>
             </div>
             <div class="modal-body text-center">
                 <p>Confirm Delete for Unit No. : {{selectedRecord?.unitNo}} , and IC No. : {{selectedRecord?.icNo}}</p>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteRecord(selectedRecord)">Yes</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="closeModalConfirmDelete()">Cancel</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteRecord(selectedRecord)">Yes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="closeModalConfirmDelete()">Cancel</button>
             </div>
         </div>
     </div>
