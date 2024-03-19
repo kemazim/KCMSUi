@@ -71,7 +71,7 @@
             SEARCH RECORD</p>
         <div style="background-color: rgb(239, 239, 239);" class="upperBox">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="mb-2 mt-1">
                         <label for="unitNo">UNIT NO</label>
                     </div>
@@ -82,14 +82,14 @@
                             name="srchBoxUnitNo" [(ngModel)]="srchBoxUnitNo">
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="mb-2 mt-1">
                         <label for="mailingAddress">IC NUMBER</label>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <div class="mb-2 mt-1">
-                        <input type="text" class="form-control" id="srchBoxIC" placeholder="Enter IC Number"
+                        <input type="text" class="form-control" style="width: 60%;" id="srchBoxIC" placeholder="Enter IC Number"
                             name="srchBoxIC" [(ngModel)]="srchBoxIC">
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="col-md-6">
                     <div class="row justify-content-center align-items-center">
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary mt-4" (click)="searchRecord()">SEARCH</button>
+                            <button type="submit" class="btn btn-success mt-4" (click)="searchRecord()">SEARCH</button>
                         </div>
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
@@ -119,15 +119,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th>NO.</th>
-                        <th>UNIT NO.</th>
-                        <th>RENTAL RATE</th>
-                        <th>I/C NO.</th>
-                        <th>TENANT NAME</th>
-                        <th>CONTACT NO.</th>
-                        <th>MAILING ADDRESS</th>
-                        <th>EMAIL ADDRESS</th>
-                        <th>COMPANY NAME</th>
+                        <th style="white-space: nowrap;text-align: center;">NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">UNIT NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">RENTAL RATE</th>
+                        <th style="white-space: nowrap;text-align: center;">I/C NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">TENANT NAME</th>
+                        <th style="white-space: nowrap;text-align: center;">CONTACT NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">MAILING ADDRESS</th>
+                        <th style="white-space: nowrap;text-align: center;">EMAIL ADDRESS</th>
+                        <th style="white-space: nowrap;text-align: center;">COMPANY NAME</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="isLoading">
@@ -142,8 +142,8 @@
                         <td>
                             <span>{{records.unitNo}}</span>
                         </td>
-                        <td>
-                            <span>{{records.rentalRate}}</span>
+                        <td style="text-align: left;">
+                            <span>{{records.rentalRate | number: '1.2-2'}}</span>
                         </td>
                         <td>
                             <span>{{records.icNo}}</span>

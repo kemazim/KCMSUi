@@ -71,7 +71,7 @@
             SEARCH RECORD</p>
         <div style="background-color: rgb(239, 239, 239);" class="upperBox">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="mb-2 mt-1">
                         <label for="unitNo">UNIT NO</label>
                     </div>
@@ -82,14 +82,14 @@
                             name="srchBoxUnitNo" [(ngModel)]="srchBoxUnitNo">
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="mb-2 mt-1">
                         <label for="mailingAddress">TRANS NO</label>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <div class="mb-2 mt-1">
-                        <input type="text" class="form-control" id="srchBoxTransNo" placeholder="Enter Trans No."
+                        <input type="text" class="form-control" style="width: 60%;" id="srchBoxTransNo" placeholder="Enter Trans No."
                             name="srchBoxTransNo" [(ngModel)]="srchBoxTransNo">
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="col-md-6">
                     <div class="row justify-content-center align-items-center">
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary mt-4" (click)="searchRecord()">SEARCH</button>
+                            <button type="submit" class="btn btn-success mt-4" (click)="searchRecord()">SEARCH</button>
                         </div>
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
@@ -165,7 +165,7 @@
                             <span>{{records.payMethod}}</span>
                         </td>
                         <td>
-                            <span>Print</span>
+                            <img style="height: 30px;width: 30px;cursor: pointer;"  src="/..//src/assets/images/printer.png" (click)="printRecord(records)">
                         </td>
                     </tr>
                 </tbody>
@@ -176,7 +176,267 @@
             </div>
         </div>
     </div>
-
-
-
 </body>
+
+<div id="print-section" *ngIf="selectedRecord">
+    <div *ngIf="selectedRecord.payMethod === 'card'" class="print-content">
+
+        <div style="text-align: center;">
+            <a>
+                <img src="/..//src/assets/images/logo.png" alt="Home">
+            </a>
+            <h2 style="margin-bottom: 0;">XCELLENT SOLUTION</h2>
+            <h2 style="margin-top: 5;">iSST Cashless Terminal</h2>
+
+            <h2 style="margin-bottom: 0;">Resit / Receipt</h2>
+            <h2 style="margin-top: 5;">(Kad / Card)</h2>
+        </div>
+
+        <div style="border-top: 1px solid black; margin-top: 10px;"></div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Resit No / Receipt No</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 50px;">: {{selectedRecord.receiptNo}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Tarikh / Date</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px; margin-left: 121px;">: {{selectedRecord.transDateTime}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Status</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 178px;">: {{selectedRecord.transStatus}}</span>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h2>Maklumat Pembayaran / Payment Details</h2>
+        </div>
+
+        <div style="border-top: 1px solid black; margin-top: 10px;"></div>
+
+        <div style="display: flex; ">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Rental</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 175px;">: {{selectedRecord.unitNo}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Nama / Name</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 116px;">: {{selectedRecord.accName}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Jumlah / Total</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 113px;">: RM {{selectedRecord.transAmt}}</span>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h2>Maklumat Kad / Card Details</h2>
+        </div>
+
+        <div style="border-top: 1px solid black; margin-top: 10px;"></div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Host</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 189px;">: HOST</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">TID</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 194px;">: TID</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">MID</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 188px;">: MID</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Card Type</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 144px;">: {{selectedRecord.cardType}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">No. Kad / Card No.</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 70px;">: {{selectedRecord.cardNo}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Date / Time</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 132px;">: {{selectedRecord.transDateTime}}</span>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3>Terima Kasih / Thank You</h3>
+            <h3>Payment received without any prejudice</h3>
+            <h3>Bayaran diterima tanpa sebarang prejudis</h3>
+        </div>
+
+
+    </div>
+
+    <div *ngIf="selectedRecord.payMethod === 'ewallet'">
+        <div style="text-align: center;">
+            <a>
+                <img src="/..//src/assets/images/logo.png" alt="Home">
+            </a>
+            <h2 style="margin-bottom: 0;">XCELLENT SOLUTION</h2>
+            <h2 style="margin-top: 5px;">iSST Cashless Terminal</h2>
+
+            <h2 style="margin-bottom: 0;margin-top: 30px;">Resit / Receipt</h2>
+            <h2 style="margin-top: 0; margin-bottom: 0;">(e-Dompet / e-Wallet)</h2>
+        </div>
+
+        <div style="border-top: 1px solid black; margin-top: 0px;"></div>
+
+        <div style="display: flex;margin-top: 15px;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Resit No / Receipt No</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 50px;">: {{selectedRecord.receiptNo}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Tarikh / Date</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px; margin-left: 121px;">: {{selectedRecord.transDateTime}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Status</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 178px;">: {{selectedRecord.transStatus}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 10px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">eWallet Type</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 122px;">: {{selectedRecord.cardType}}</span>
+            </div>
+        </div>
+
+        <div style="text-align: center;margin-bottom: 0;">
+            <h2 style="margin-bottom: 0;">Maklumat Pembayaran / Payment Details</h2>
+        </div>
+
+        <div style="border-top: 1px solid black; margin-top: 0;"></div>
+
+        <div style="display: flex;margin-top: 15px;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Rental</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 174px;">: {{selectedRecord.unitNo}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Nama / Name</label>
+            </div>
+            <div class="m-2">
+                <span style="font-size: 20px;margin-left: 116px;">: {{selectedRecord.accName}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Jumlah / Total</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 114px;">: RM {{selectedRecord.transAmt}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;margin-bottom: 3px;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Jumlah Bayaran /</label>
+            </div>
+            <div class="m-2" >
+                <span style="font-size: 20px;margin-left: 87px;">: RM {{selectedRecord.transAmt}}</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="m-2" style="align-self: flex-start;">
+                <label for="unitNo" style="font-size: 20px; margin-left: 150px;">Total Payment
+                </label>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <h3 style="margin-bottom: 3px;margin-top: 0px;">Terima Kasih / Thank You</h3>
+            <h3 style="margin-bottom: 3px;margin-top: 0px;">Payment received without any prejudice</h3>
+            <h3 style="margin-bottom: 3px;margin-top: 0px;">Bayaran diterima tanpa sebarang prejudis</h3>
+        </div>
+    </div>
+</div>
+
+<style>
+    @media print {
+        .print-content {
+            display: inline-block;
+            page-break-inside: avoid;
+            width: 60%;
+            height: auto;
+        }
+    }
+</style>

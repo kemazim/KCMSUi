@@ -72,8 +72,8 @@
         <div style="background-color: rgb(239, 239, 239);">
             <form [formGroup]="addRecordForm">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="mb-2 mt-1">
+                    <div class="col-md-2">
+                        <div class="mb-2 mt-1 ">
                             <label for="unitNo">UNIT NO</label>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                                 name="unitNo" formControlName="unitNo">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="mailingAddress">MAILING ADDRESS</label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-2 mt-1">
                             <input type="text" class="form-control" id="mailingAddress"
                                 placeholder="Enter Mailing Address" name="mailingAddress"
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="rentalRate">RENTAL RATE</label>
                         </div>
@@ -108,20 +108,20 @@
                                 name="rentalRate" formControlName="rentalRate">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="email">EMAIL ADDRESS</label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-2 mt-1">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address"
+                            <input type="email" class="form-control" style="width: 60%;" id="email" placeholder="Enter Email Address"
                                 name="email" formControlName="email">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="icNo">I/C NO.</label>
                         </div>
@@ -132,20 +132,20 @@
                                 formControlName="icNo">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="companyName">COMPANY NAME</label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name"
+                            <input type="text" class="form-control" style="width: 60%;" id="companyName" placeholder="Enter Company Name"
                                 name="companyName" formControlName="companyName">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="tenantName">TENANT NAME</label>
                         </div>
@@ -156,14 +156,14 @@
                                 name="tenantName" formControlName="tenantName">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="mb-2 mt-1">
                             <label for="contactNo">CONTACT NO.</label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-2 mt-1">
-                            <input type="text" class="form-control" id="contactNo" placeholder="Enter Contact No."
+                            <input type="text" class="form-control" style="width: 60%;" id="contactNo" placeholder="Enter Contact No."
                                 name="contactNo" formControlName="contactNo">
                         </div>
                     </div>
@@ -173,7 +173,7 @@
                     <div class="col-md-6">
                         <div class="row justify-content-center align-items-center">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-primary mt-4" (click)="confirmModal()">ADD</button>
+                                <button type="submit" class="btn btn-success mt-4" (click)="confirmModal()">ADD</button>
                             </div>
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-primary mt-4" (click)="clear()">CLEAR</button>
@@ -194,15 +194,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th>NO.</th>
-                        <th>UNIT NO.</th>
-                        <th>RENTAL RATE</th>
-                        <th>I/C NO.</th>
-                        <th>TENANT NAME</th>
-                        <th>CONTACT NO.</th>
-                        <th>MAILING ADDRESS</th>
-                        <th>EMAIL ADDRESS</th>
-                        <th>COMPANY NAME</th>
+                        <th style="white-space: nowrap;text-align: center;">NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">UNIT NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">RENTAL RATE</th>
+                        <th style="white-space: nowrap;text-align: center;">I/C NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">TENANT NAME</th>
+                        <th style="white-space: nowrap;text-align: center;">CONTACT NO.</th>
+                        <th style="white-space: nowrap;text-align: center;">MAILING ADDRESS</th>
+                        <th style="white-space: nowrap;text-align: center;">EMAIL ADDRESS</th>
+                        <th style="white-space: nowrap;text-align: center;">COMPANY NAME</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="isLoading">
@@ -217,8 +217,8 @@
                         <td>
                             <span>{{records.unitNo}}</span>
                         </td>
-                        <td>
-                            <span>{{records.rentalRate}}</span>
+                        <td style="text-align: left;">
+                            <span>RM{{records.rentalRate | number: '1.2-2'}}</span>
                         </td>
                         <td>
                             <span>{{records.icNo}}</span>
@@ -252,7 +252,7 @@
 <div class="modal" id="confirmModal">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: darkslategrey;color: white;">
+            <div class="modal-header" style="background-color: rgb(23, 35, 35);color: white;">
                 <h4 class="modal-title">Add Confirmation</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModalConfirm()"></button>
             </div>
@@ -260,8 +260,8 @@
                 <p>Confirm add new record for Unit No. {{addRecordForm.value.unitNo}}</p>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addRecord()">Add</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="addRecord()">Add</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
                     (click)="closeModalConfirm()">Close</button>
             </div>
         </div>

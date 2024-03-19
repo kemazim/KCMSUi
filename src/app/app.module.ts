@@ -13,6 +13,7 @@ import { AddRecordComponent } from './components/add-record/add-record.component
 import { SearchRecordComponent } from './components/search-record/search-record.component';
 import { DeleteRecordComponent } from './components/delete-record/delete-record.component';
 import { ReportingComponent } from './components/reporting/reporting.component';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReportingComponent } from './components/reporting/reporting.component';
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPrintModule
   ],
   providers: [],
   bootstrap: [AppComponent]

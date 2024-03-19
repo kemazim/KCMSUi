@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxPrintService, PrintOptions } from 'ngx-print';
 import { Records } from 'src/app/models/records';
 import { RecordService } from 'src/app/services/recordService/record.service';
 import { TransactionService } from 'src/app/services/transactionService/transaction.service';
@@ -16,6 +17,7 @@ export class ReportingComponent implements OnInit{
   userName: string = '';
   trans: any[] = [];
   filterList: any[] = [];
+  selectedRecord: any | null = null;
 
   totalPages!: number;
   currentPage: number = 1;
@@ -28,7 +30,8 @@ export class ReportingComponent implements OnInit{
     private router: Router,
     private fb: FormBuilder,
     private recordService: RecordService,
-    private transService: TransactionService
+    private transService: TransactionService,
+    private printService: NgxPrintService
     ) {
   }
 
@@ -37,6 +40,7 @@ export class ReportingComponent implements OnInit{
     this.userName = name !== null ? name : '';
     this.isLoading = true;
     this.loadRecord();
+
   }
 
   loadRecord() {
@@ -49,6 +53,24 @@ export class ReportingComponent implements OnInit{
     })
   }
 
+  printRecord(record: any) {
+    this.selectedRecord = record;
+    setTimeout(() => {
+      if (this.selectedRecord) {
+        const customPrintOptions: PrintOptions = new PrintOptions({
+          printSectionId: 'print-section',
+          printTitle: 'Transaction',
+          
+        });
+        this.printService.print(customPrintOptions);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      this.selectedRecord = null;
+    }, 2000); 
+  }
+  
   calculateTotalPages(): void {
     this.totalPages = Math.ceil(this.trans.length / this.itemsPerPage);
   }
